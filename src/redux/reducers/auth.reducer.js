@@ -1,4 +1,4 @@
-import { SEND_FORGET_PASSWORD_EMAIL, UPDATE_AUTH_USER, UPDATE_LOAD_USER, SET_EMAIL } from '../';
+import { SEND_FORGET_PASSWORD_EMAIL, UPDATE_AUTH_USER, UPDATE_LOAD_USER } from '../actions/types';
 
 const INIT_STATE = {
   authUser: null,

@@ -17,9 +17,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { sizing } from '@mui/system';
+
 
 import logo from '../../assets/jc-logo.png';
-import logobg from '../../assets/jc-bg.jpg';
+import logobg from '../../assets/jc-bg.png';
 
 import { SET_ERRORS } from '../../redux/actions/types';
 
@@ -46,67 +48,86 @@ const Login = ({history}) => {
   console.log(values)
 
 
+  //snackbar function
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+
+
   const theme = createTheme();
 
+ 
   return (
     <ThemeProvider theme={theme}>
-    <Grid container component="main" sx={{  ml: '-10px', mt: '-5px'}}>
+    <Grid container component="main" sx={{ float: 'right', width: '80%', mt: 5}}>
         <CssBaseline />
       <Grid
           item
-          xs={false}
-          sm={4}
-          md={7}
+          sm={3}
+          md={6}
           sx={{
             backgroundImage: `url(${logobg})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[30] : t.palette.grey[200],
-              backgroundSize: '115%',
-              backgroundPosition: 'center',
+              backgroundSize: '150%',
           }}
 
         />
           
 
-        <Grid item xs={10} sm={8} md={5} component={Paper} elevation={3} square 
+        <Grid item xs={6} sm={3} md={5} component={Paper} elevation={6} square 
         sx={{ 
           backgroundImage: `url(${logo})`,
-          backgroundSize: '20%',
+          backgroundSize: '15%',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'top',
-          mb: 3, 
+          mb: 5, 
           mt: 2
         }}
         >
         <Box
            sx={{
-             my: 6,
-             mx: 8,
+             my: 3,
+             mx: 2,
              display: 'flex',
              flexDirection: 'column',
              alignItems: 'center',
            }}
          >
-          <Typography component="body1" variant="h3" sx={{ mb: 1, mt: 6 }}>
+          <Typography component="body2" variant="h4" sx={{ mb: 1, mt: 10 }}>
             Welcome
           </Typography>
           <Typography component="body2" variant="body2">
             Sign in to continue
           </Typography>
-          <Box component="form" onSubmit={onSubmit} sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={onSubmit} sx={{ mt: 1}}>
             <TextField
-              margin="normal"
               fullWidth
+              margin='dense'
+              size='small'
               onChange={handleChange('email_address')}
               defaultValue={values.email_address}
               label="Email Address"
               helperText={errors.email_address}
-              error={errors.email_address ? true : false } 
+              error={errors.email_address ? true : false }
             />
-            <TextField
-              type="password"
+            <TextField 
               fullWidth
+              size='small'
+              margin='dense'
+              type="password"
               label="Password"
               onChange={handleChange('password')}
               defaultValue={values.password}
@@ -114,7 +135,7 @@ const Login = ({history}) => {
               error={errors.password ? true : false }
             />
             <Grid container>
-              <Grid item xs sx={{ mt: 1, mb: 2, textAlign: 'right' }}>
+              <Grid item xs sx={{ mt: 1, mb: 2, textAlign: 'right', textDecoration: 'none' }}>
                 <Link to="/forgot"  variant="body2">
                   Forgot password?
                 </Link>
@@ -122,26 +143,25 @@ const Login = ({history}) => {
 
             <Button
               type="submit"
-              disabled={loading}
               fullWidth
               variant="contained"
-              color="primary"
+              color="success"
               sx={{ mt: 1 }}
             >
                   Sign In
                   
             </Button>
-            {/* </Link> */}
               <Button
               fullWidth
               variant="outlined"
-              color="primary"
+              color="success"
               sx={{ mt: 1, mb: 1}}
             >
               Register                  
             </Button>
-              <Typography component="body2"  sx={{ mt: 3, ml: 6, textAlign: 'center' }} >
-                  By signing in, you agree to our <Link to="/" variant="outlined" color="link"> Terms and Condition </Link>and Privacy Policy.
+              <Typography component="body2"  sx={{ mt: 2, ml: 6, textAlign: 'center'}} >
+                  By signing in, you agree to our <Link to="/"  color="palette.success.light"> Terms and Condition </Link>and 
+                  <Link to="/" sx={{ textDecoration: 'none' }} variant="sucpalette.success.lightcess"> Privacy Policy. </Link>
               </Typography>
             </Grid>
           </Box>

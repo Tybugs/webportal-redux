@@ -19,7 +19,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import logo from '../../assets/jc-logo.png';
-import logobg from '../../assets/jc-bg.jpg';
+import logobg from '../../assets/jc-bg.png';
 
 import { SET_ERRORS } from '../../redux/actions/types';
 

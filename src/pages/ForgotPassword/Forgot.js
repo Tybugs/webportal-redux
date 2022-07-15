@@ -8,24 +8,20 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import logo from '../../assets/jc-logo.png';
-import logobg from '../../assets/jc-bg.jpg';
+import logobg from '../../assets/jc-bg.png';
 
 import { SET_ERRORS } from '../../redux/actions/types';
 
 import { login } from '../../redux/actions/auth.action';
 
-const Login = ({history}) => {
+const Forgot = ({history}) => {
   const dispatch = useDispatch();
   const { errors, loading } = useSelector(state => state.uiReducer);
   const [values, setValues] = useState({});
@@ -50,52 +46,52 @@ const Login = ({history}) => {
 
   return (
     <ThemeProvider theme={theme}>
-    <Grid container component="main" sx={{  ml: '-10px', mt: '-5px'}}>
+    <Grid container component="main" sx={{ float: 'right', width: '80%', mt: 5}}>
         <CssBaseline />
       <Grid
           item
-          xs={false}
-          sm={4}
-          md={7}
+          sm={3}
+          md={6}
           sx={{
             backgroundImage: `url(${logobg})`,
             backgroundRepeat: 'no-repeat',
-              backgroundSize: '115%',
-              backgroundPosition: 'center',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[30] : t.palette.grey[200],
+              backgroundSize: '150%',
           }}
 
         />
           
 
-        <Grid item xs={10} sm={8} md={5} component={Paper} elevation={3} square 
+        <Grid item xs={6} sm={3} md={5} component={Paper} elevation={6} square 
         sx={{ 
           backgroundImage: `url(${logo})`,
-          backgroundSize: '20%',
+          backgroundSize: '15%',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'top',
-          mb: 3, 
+          mb: 5, 
           mt: 2
         }}
-        >
-        <Box
-           sx={{
-             my: 6,
-             mx: 8,
-             display: 'flex',
-             flexDirection: 'column',
-             alignItems: 'center',
-           }}
-         >
-          <Typography component="body1" variant="h6" sx={{ mb: 1, mt: 15 }}>
+        >  <Box
+        sx={{
+          my: 3,
+          mx: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+          <Typography component="body2" variant="h6" sx={{ mb: 1, mt: 10, fontWeight: 500 }}>
             Forgot your password?
           </Typography>
-          <Typography component="body2" variant="body2">
+          <Typography component="body2" variant="body1">
             Enter your registered email below to received password reset code 
           </Typography>
           <Box component="form" onSubmit={onSubmit} sx={{ mt: 1 }}>
             <TextField
-              margin="normal"
+              margin="dense"
               fullWidth
+              size="small"
               onChange={handleChange('email_address')}
               defaultValue={values.email_address}
               label="Email Address"
@@ -104,24 +100,28 @@ const Login = ({history}) => {
             />
             <Button
               type="submit"
+              size='small'
               disabled={loading}
               fullWidth
               variant="contained"
-              color="primary"
-              sx={{ mt: 1 }}
+              color="success"
+              sx={{ mt: 3 }}
             >
                   Submit
                   
             </Button>
-            {/* </Link> */}
-              <Button
-              fullWidth
-              variant="outlined"
-              color="primary"
-              sx={{ mt: 1, mb: 1}}
-            >
-              Back to Login                 
-            </Button>
+            <Link to="/login">
+                <Button
+                  fullWidth
+                  size="small"
+                  variant="outlined"
+                  color="success"
+                  sx={{ mt: 1, mb: 1, textDecoration: 'none' }}
+                >
+                  Back to Login                 
+                </Button>
+            </Link>
+      
               <Typography component="body2"  sx={{ mt: 3, ml: 6, textAlign: 'center' }} >
                   <Link to="/" variant="outlined" color="link"> Terms and Condition </Link>
               </Typography>
@@ -136,4 +136,4 @@ const Login = ({history}) => {
   );
 }
 
-export default Login;
+export default Forgot;

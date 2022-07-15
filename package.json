@@ -20,7 +20,8 @@
     "recharts": "^2.1.12",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "@tabler/icons": "^1.72.0"
   },
   "scripts": {
     "start": "react-scripts start",

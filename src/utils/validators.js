@@ -19,10 +19,11 @@ const isEmail = (email) => {
   export const validateLoginData = (data) => {
         let errors = {};
       
-        if (isEmpty(data.email_address)) errors.email_address = 'Email_address must not be empty';
+        if (isEmpty(data.email_address)) errors.email_address = 'Email Address must not be empty';
         if (!isEmail(data.email_address)) errors.email_address = 'Invalid Email Address';
-        if (isEmpty(data.password)) errors.password = 'Password must be empty';
+        if (isEmpty(data.password)) errors.password = 'Password must not be empty';
         if (isPasswordLength(data.password, 8)) errors.password = 'Password must at least 8 Characters';
+
         return {
           errors,
           valid: Object.keys(errors).length === 0 ? true : false

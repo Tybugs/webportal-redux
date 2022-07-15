@@ -1,50 +1,61 @@
 import * as React from 'react';
 import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
 import Box from '@mui/material/Box';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import HomeIcon from '@mui/icons-material/Home';
-import PeopleIcon from '@mui/icons-material/People';
-import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
-import PermMediaOutlinedIcon from '@mui/icons-material/PhotoSizeSelectActual';
-import PublicIcon from '@mui/icons-material/Public';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
-import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
-import TimerIcon from '@mui/icons-material/Timer';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import StoreIcon from '@mui/icons-material/Store';
+import PaymentIcon from '@mui/icons-material/Payment';
+import ArticleIcon from '@mui/icons-material/Article';
 import SettingsIcon from '@mui/icons-material/Settings';
-import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import PeopleIcon from '@mui/icons-material/People';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+
+
+
+import logojc from '../../assets/jc-logo.png'
 
 const categories = [
   {
-    id: 'Build',
+    id: 'Main',
     children: [
       {
-        id: 'Authentication',
-        icon: <PeopleIcon />,
+        id: 'Dashboard',
+        icon: <DashboardIcon />,
         active: true,
       },
-      { id: 'Database', icon: <DnsRoundedIcon /> },
-      { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Hosting', icon: <PublicIcon /> },
-      { id: 'Functions', icon: <SettingsEthernetIcon /> },
-      {
-        id: 'Machine learning',
-        icon: <SettingsInputComponentIcon />,
-      },
+      { id: 'Orders', icon: <ShoppingBasketIcon /> },
+      { id: 'Menu Management', icon: <RestaurantMenuIcon /> },
+      { id: 'Shop Management', icon: <StoreIcon /> },
+      { id: 'Remittance', icon: <PaymentIcon /> },
+      { id: 'Reports', icon: <ArticleIcon /> },
+      { id: 'Settings', icon: <SettingsIcon /> },
+      { id: 'Wallet', icon: <CreditCardIcon /> },
+      { id: 'Promotion', icon: <CampaignIcon /> },
+      { id: 'Accounts', icon: <PeopleIcon /> },
     ],
   },
   {
-    id: 'Quality',
+    id: 'Others',
     children: [
-      { id: 'Analytics', icon: <SettingsIcon /> },
-      { id: 'Performance', icon: <TimerIcon /> },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
+      { id: 'Profile Settings', icon: <SettingsIcon /> },
+      { id: 'Notifications', icon: <NotificationsActiveIcon /> },
     ],
   },
+  {
+    id: 'Control Panel',
+    children: [
+      { id: 'Developer Settings', icon: <AdminPanelSettingsIcon /> },
+    ],
+  },
+
 ];
 
 const item = {
@@ -52,7 +63,7 @@ const item = {
   px: 3,
   color: 'rgba(255, 255, 255, 0.7)',
   '&:hover, &:focus': {
-    bgcolor: 'rgba(255, 255, 255, 0.08)',
+    bgcolor: 'rgba(134, 188, 66)',
   },
 };
 
@@ -66,19 +77,9 @@ export default function Navigator(props) {
   const { ...other } = props;
 
   return (
-    <Drawer variant="permanent" {...other}>
-      <List disablePadding>
-        <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
-          Paperbase
-        </ListItem>
-        <ListItem sx={{ ...item, ...itemCategory }}>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText>Project Overview</ListItemText>
-        </ListItem>
-        {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: '#101F33' }}>
+       <Box>
+           {categories.map(({ id, children }) => (
+          <Box key={id} sx={{ bgcolor: '#242833' }}>
             <ListItem sx={{ py: 2, px: 3 }}>
               <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
             </ListItem>
@@ -94,7 +95,7 @@ export default function Navigator(props) {
             <Divider sx={{ mt: 2 }} />
           </Box>
         ))}
-      </List>
-    </Drawer>
+       </Box>
+       
   );
 }

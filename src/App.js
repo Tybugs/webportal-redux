@@ -14,6 +14,7 @@ import Login from './pages/Login/Login'
 import Forgot from './pages/ForgotPassword/Forgot'
 import Dashboard from './pages/Dashboard/Dashboard' 
 import Verification from './pages/ForgotPassword/Verification'
+import Dashboardv1 from './pages/Dashboardv1/Dashboardv1';
 import { history } from './helpers/history'
 
 import { useSelector } from 'react-redux';
