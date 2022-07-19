@@ -4,6 +4,5 @@ import ui from "./ui.reducer";
 
 export default combineReducers({
   authReducer: auth,
-  uiReducer: ui
-
+  uiReducer: ui,
 });

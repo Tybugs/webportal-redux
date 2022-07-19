@@ -9,17 +9,17 @@ import Navigator from './Navigator';
 import Content from './Content';
 import Header from './Header';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="">
+//         JC Portal
+//       </Link>{' '}
+//       {new Date().getFullYear()}.
+//     </Typography>
+//   );
+// }
 
 let theme = createTheme({
   palette: {
@@ -166,7 +166,7 @@ theme = {
 
 const drawerWidth = 256;
 
-export default function Paperbase() {
+export default function Dashboard() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -202,7 +202,7 @@ export default function Paperbase() {
             <Content />
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
-            <Copyright />
+            {/* <Copyright /> */}
           </Box>
         </Box>
       </Box>
